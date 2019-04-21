@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
   getPosts: async (req, res, next) => {
     try {
-      const results = await db.Post.findAll({
+      const posts = await db.Post.findAll({
         include: [
           {
             model: db.Author,
@@ -16,20 +16,7 @@ module.exports = {
         ],
         order: [["id", "ASC"]]
       });
-      console.log("results: ", results[0].dataValues);
-
-      const posts = results.map(result => ({
-        title: result.dataValues.title,
-        body: result.dataValues.body,
-        tags: result.dataValues.tags,
-        image_url: result.dataValues.image_url,
-        created_at: result.dataValues.created_at,
-        updated_at: result.dataValues.updated_at,
-        name: result.Author.dataValues.name,
-        role: result.Author.dataValues.role,
-        avatar: result.Author.dataValues.avatar,
-        location: result.Author.dataValues.location
-      }));
+      // console.log("posts: ", posts[0].dataValues);
 
       res.json(posts);
     } catch (err) {

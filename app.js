@@ -4,6 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 const sequelize = require("./models").sequelize;
 
@@ -14,6 +15,13 @@ dotenv.config();
 const app = express();
 
 sequelize.sync({ logging: console.log }); // { force: true }
+
+const corsOption = {
+  origin: "*",
+  methods: "GET, PUT, PATCH, POST, DELETE",
+  exposedHeaders: "*"
+};
+app.use(cors(corsOption));
 
 app.use(logger("dev"));
 app.use(express.json());
