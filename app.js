@@ -13,7 +13,7 @@ dotenv.config();
 
 const app = express();
 
-sequelize.sync();
+sequelize.sync({ logging: console.log }); // { force: true }
 
 app.use(logger("dev"));
 app.use(express.json());
