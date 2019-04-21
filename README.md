@@ -1,3 +1,5 @@
+# ASIANCE coding challenge - Part 1
+
 ### Tech Stack
 
 - Node.js + Express Server
@@ -31,3 +33,5 @@ npm start
 ```bash
 npm run dev
 ```
+
+*** You need database configuration beforehand**
