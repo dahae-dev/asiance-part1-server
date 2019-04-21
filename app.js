@@ -5,11 +5,15 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const dotenv = require("dotenv");
 
+const sequelize = require("./models").sequelize;
+
 const indexRouter = require("./routes/index");
 
 dotenv.config();
 
 const app = express();
+
+sequelize.sync();
 
 app.use(logger("dev"));
 app.use(express.json());
