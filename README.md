@@ -1,3 +1,11 @@
+### Tech Stack
+
+- Node.js + Express Server
+- DB
+  - AWS RDS (MySQL)
+  - Sequelize
+- REST API
+
 ### How to start
 
 - Git clone
@@ -16,4 +24,10 @@ cd asiance-part2-server && npm install
 
 ```bash
 npm start
+```
+
+- Run development mode
+
+```bash
+npm run dev
 ```
